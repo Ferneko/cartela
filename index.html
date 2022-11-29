@@ -1,0 +1,44 @@
+<script>
+    var nomesSorteados = [];
+    var cartela = []
+
+    for(var i = 0; i < 24; i++)
+    {
+        cartela.push( gerarNumeroCartela() )
+        document.write( cartela[i]+ " - ")
+    }
+
+    function gerarNumeroCartela()
+    {
+        var numeroGerado = GerarNumeroAleatorio()
+        if(verificarNumeroRepetido(numeroGerado, cartela))
+        {
+            return gerarNumeroCartela()
+        }
+        else
+        {
+            return numeroGerado
+        }
+    }
+    function GerarNumeroAleatorio()
+    {
+        var numeroSorteado =  Math.random() ;
+        numeroSorteado = numeroSorteado * 75;
+        numeroSorteado = Math.floor(numeroSorteado);
+        return numeroSorteado;
+    }
+
+    function verificarNumeroRepetido(numero,array)
+    {
+        for(var i = 0; i < array.length; i++)
+        {
+            if(numero == array[i])
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+</script>
